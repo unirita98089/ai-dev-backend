@@ -16,7 +16,7 @@ class TodoController extends Controller
 
     public function index()
     {
-        return $this->todoRepository->all();
+        return response()->json($this->todoRepository->all());
     }
 
 }
