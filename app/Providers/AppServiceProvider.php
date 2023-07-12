@@ -3,6 +3,8 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use App\Repositories\Todo\TodoRepositoryInterface;
+use App\Repositories\Todo\TodoRepository;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -11,7 +13,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        //
+        // 依存性注入
+        $this->app->bind(TodoRepositoryInterface::class, TodoRepository::class);
     }
 
     /**
